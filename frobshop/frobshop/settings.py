@@ -31,17 +31,17 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
-                     'django.contrib.auth',
-                     'django.contrib.contenttypes',
-                     'django.contrib.sessions',
-                     'django.contrib.sites',
-                     'django.contrib.messages',
-                     'django.contrib.staticfiles',
-                     'django.contrib.flatpages',
-                     'compressor',
-                     'widget_tweaks',
-                 ] + get_core_apps()
+INSTALLED_APPS = ['django.contrib.admin',
+                  'django.contrib.auth',
+                  'django.contrib.contenttypes',
+                  'django.contrib.sessions',
+                  'django.contrib.sites',
+                  'django.contrib.messages',
+                  'django.contrib.staticfiles',
+                  'django.contrib.flatpages',
+                  'compressor',
+                  'widget_tweaks',
+                  ] + get_core_apps()
 
 SITE_ID = 1
 
@@ -53,8 +53,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'oscar.apps.basket.middleware.BasketMiddleware', # Added for oscar
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware', # Added for oscar
+    'oscar.apps.basket.middleware.BasketMiddleware',  # Added for oscar
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',  # Added for oscar
 ]
 
 ROOT_URLCONF = 'frobshop.urls'
@@ -155,7 +155,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_INITIAL_LINE_STATUS = 'Pending'
 OSCAR_ORDER_STATUS_PIPELINE = {
-                                'Pending': ('Being processed', 'Cancelled',),
-                                'Being processed': ('Processed', 'Cancelled',),
-                                'Cancelled': ()
-                                }
+    'Pending': ('Being processed', 'Cancelled',),
+    'Being processed': ('Processed', 'Cancelled',),
+    'Cancelled': ()
+}
