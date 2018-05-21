@@ -41,6 +41,7 @@ INSTALLED_APPS = ['django.contrib.admin',
                   'django.contrib.flatpages',
                   'compressor',
                   'widget_tweaks',
+                  'catalogue',
                   ] + get_core_apps()
 
 SITE_ID = 1
@@ -155,7 +156,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 OSCAR_INITIAL_ORDER_STATUS = 'Pending'
 OSCAR_INITIAL_LINE_STATUS = 'Pending'
 OSCAR_ORDER_STATUS_PIPELINE = {
-    'Pending': ('Being processed', 'Cancelled',),
-    'Being processed': ('Processed', 'Cancelled',),
+    'Pending': ('Being processed', 'Cancelled'),
+    'Being processed': ('Processed', 'Cancelled'),
     'Cancelled': ()
+
 }
+
+
+# OSCAR_INITIAL_ORDER_STATUS = 'Pending'
+# OSCAR_INITIAL_LINE_STATUS = 'Pending'
+# OSCAR_ORDER_STATUS_PIPELINE = {
+#     'Pending': ('Being processed', 'Cancelled',),
+#     'Being processed': ('Processed', 'Cancelled',),
+#     'Cancelled': ()
+# }
